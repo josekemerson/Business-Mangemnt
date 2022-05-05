@@ -69,7 +69,7 @@ function Dashboard() {
             <Link to="/Appointment">
               <li>Book Appointments </li>
             </Link>
-            <Link to="/stock">
+            <Link to="/Trading">
               <li>Stock </li>
             </Link>
             <li>Banker</li>

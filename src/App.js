@@ -22,6 +22,7 @@ import AddAdvisor from "./components/Admin/Booking/AddAdvisor";
 import AdvisorDash from "./components/AdvisorDashboard/AdvisorDash";
 import AdvisorsProfile from "./components/Advisors/AdvisorsProfile";
 import Leave from "./components/AdvisorDashboard/Leave";
+import Trading from "./components/Stock/Trading";
 
 function App() {
   return (
@@ -63,6 +64,9 @@ function App() {
         </Route>
         <Route path="/stock">
           <Stock />
+        </Route>
+        <Route path="/Trading">
+          <Trading />
         </Route>
         <Route path="/Patent">
           <Patent />
