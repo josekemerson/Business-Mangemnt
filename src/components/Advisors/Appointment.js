@@ -6,9 +6,14 @@ import "./appointmentstyle.css";
 
 const axios = require("axios");
 function Appointment() {
-  let id = window.localStorage.getItem("id");
-  console.log(id);
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
 
+  today = yyyy + "-" + mm + "-" + dd;
+  let id = window.localStorage.getItem("id");
+  console.log(today);
   const [advisors, setAdvisors] = useState([]);
 
   async function getAdvisors() {
@@ -86,7 +91,6 @@ function Appointment() {
     } else {
       alert("Phone number error");
     }
-    console.log(data);
   };
   return (
     <div>
@@ -167,7 +171,9 @@ function Appointment() {
                     {advisors &&
                       advisors.length > 0 &&
                       advisors.map((p) => {
-                        return <option value={p._id}>{p.uname}</option>;
+                        if (p.leave != today) {
+                          return <option value={p._id}>{p.uname}</option>;
+                        }
                       })}
                   </select>
                   <span className="select-arrow"></span>
@@ -179,7 +185,7 @@ function Appointment() {
                       <input
                         className="form-control"
                         type="date"
-                        min="2022-04-11"
+                        min="2022-05-05"
                         onChange={handleDate}
                         required
                       />
