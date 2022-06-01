@@ -95,7 +95,7 @@ function Leave() {
                     <input
                       className="form-control"
                       type="date"
-                      min="2022-05-05"
+                      min="2022-05-12"
                       onChange={handleDate}
                       required
                     />

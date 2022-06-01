@@ -29,7 +29,7 @@ const Login = () => {
         window.localStorage.setItem("useremail", response.data.useremail);
         window.localStorage.setItem("userphone", response.data.userphone);
         if (response.data.role === "admin") {
-          history.push("/admindashboard");
+          history.push("/useradmin");
         } else {
           if (
             response.data.role === "investor" ||

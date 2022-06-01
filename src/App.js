@@ -23,6 +23,14 @@ import AdvisorDash from "./components/AdvisorDashboard/AdvisorDash";
 import AdvisorsProfile from "./components/Advisors/AdvisorsProfile";
 import Leave from "./components/AdvisorDashboard/Leave";
 import Trading from "./components/Stock/Trading";
+import ViewPatent from "./components/PatentIdeas/ViewPatent";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import StockData from "./components/Admin/StockData/StockData";
+import AllowPatent from "./components/Admin/AllowPatent/AllowPatent";
+import Useradmin from "./components/Admin/UserAdmin/useradmin";
+import Verify from "./components/ForgotPassword/Verify";
+import ResetPassword from "./components/ForgotPassword/ResetPassword";
+
 
 function App() {
   return (
@@ -96,7 +104,27 @@ function App() {
         <Route path="/Leave">
           <Leave />
         </Route>
-
+        <Route path="/ViewPatent">
+          <ViewPatent />
+        </Route>
+        <Route path="/ForgotPassword">
+          <ForgotPassword />
+        </Route>
+        <Route path="/StockData">
+          <StockData />
+        </Route>
+        <Route path="/AllowPatent">
+          <AllowPatent />
+        </Route>
+        <Route path="/useradmin">
+          <Useradmin />
+        </Route>
+        <Route path="/Verify">
+          <Verify />
+        </Route>
+        <Route path="/Restpassword">
+          <ResetPassword />
+        </Route>
         <Route path="*">
           <Error />
         </Route>

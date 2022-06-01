@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+
+import { Link, useHistory } from "react-router-dom";
 import "./Errorsignin.css";
 import "./SignUp.css";
+import GooglePayButton from "@google-pay/button-react";
 
 const axios = require("axios");
 const SignUp = () => {
@@ -94,6 +96,7 @@ const SignUp = () => {
       alert("Enter all details");
     }
   };
+  function showRazorpay() {}
   return (
     <>
       <section className="showcase login">
@@ -204,6 +207,7 @@ const SignUp = () => {
               value="Create Your Account"
               onClick={handleCreate}
             />
+
           </form>
         </div>
       </section>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactHighcharts from "react-highcharts/ReactHighstock.src";
 import priceData from "../../assets/btcdata.json";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default class App extends Component {
   render() {
@@ -104,6 +105,39 @@ export default class App extends Component {
     };
     return (
       <div>
+        <header1>
+          <nav>
+            <div id="logo">
+              <img
+                src="https://i.imgur.com/TdccLUv_d.webp?maxwidth=760&fidelity=grand"
+                width="100 "
+              />
+            </div>
+            <ul id="menu">
+              <Link to="/Dashboard">
+                <li>Home</li>
+              </Link>
+           
+              <Link to="/Appointment">
+                <li>Book Appointments </li>
+              </Link>
+              <Link to="/stock">
+                <li>Stock </li>
+              </Link>
+             
+              <Link to="/view">
+                <li>View Posts </li>
+              </Link>
+              <Link to="/Profile">
+                {" "}
+                <li>Profile </li>
+              </Link>
+              <Link to="/showcase">
+                <li>Log Out</li>
+              </Link>
+            </ul>
+          </nav>
+        </header1>
         <ReactHighcharts config={configPrice}></ReactHighcharts>
       </div>
     );

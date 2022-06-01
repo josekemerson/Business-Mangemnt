@@ -8,6 +8,9 @@ const Header = () => {
         <Link className='links' to='/'>
           Home
         </Link>
+        <Link className ="links" to="/ForgotPassword">
+          Forgot Password
+        </Link>
       </div>
 
       <nav className='navbar'>

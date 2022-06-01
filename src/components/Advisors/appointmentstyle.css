@@ -161,6 +161,7 @@
 
 .booking-form .form-btn {
   margin-top: 10px;
+  
 }
 
 .booking-form .submit-btn {
@@ -172,6 +173,7 @@
   border-radius: 0px;
   width: 100%;
   border: none;
+  margin-left: 5px;
 }
 .container-new {
   height: 100vh;

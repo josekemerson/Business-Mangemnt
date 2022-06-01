@@ -38,8 +38,7 @@ class SimpleForm extends Component {
               </Link>
               <li>Ideas</li>
               <li>Advisors</li>
-              <li>Banker</li>
-              <li>FAQ </li>
+              <li>Stock</li>
               <li>Log Out</li>
             </ul>
           </nav>

@@ -1,30 +1,27 @@
-import React, { useState, useEffect } from "react";
-import "./View.css";
 import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import GooglePayButton from "@google-pay/button-react";
 const axios = require("axios");
-const View = () => {
+
+function ViewPatent() {
   const history = useHistory();
-  const [ideas, setIdea] = useState(null);
+  const [patentideas, setPatentIdea] = useState(null);
   const token = window.localStorage.getItem("token");
   async function viewMore(id) {
     window.localStorage.setItem("Viewid", id);
     history.push("/checkout");
   }
-  async function getIdeas() {
-    let response = await axios.get(
-      "http://localhost:5000/showInvestIdeaBusiness",
-      {
-        headers: { Authorization: token },
-      }
-    );
+  async function getPatentIdeas() {
+    let response = await axios.get("http://localhost:5000/getpatentideas");
     if (response.status === 200) {
-      setIdea(response.data.message);
+      setPatentIdea(response.data.message);
     }
   }
   useEffect(() => {
-    getIdeas();
+    getPatentIdeas();
   }, []);
+  const data = {};
   return (
     <div>
       <header1>
@@ -60,41 +57,45 @@ const View = () => {
           </ul>
         </nav>
       </header1>
-      
-      
+
       <div>
         <Table striped bordered hover size="sm-10">
           <thead>
             <tr>
-              <th>Topic</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th colSpan="2">INR Price</th>
+              <th>Classification</th>
+              <th>Date</th>
+              <th>Priority Data</th>
+              <th>Applicant</th>
+              <th>Inventor</th>
+              <th>Title</th>
+              <th>Abstract</th>
+              <th>Base Price</th>
+              <th>Price Expiry Date</th>
+              <th>Action</th>
             </tr>
           </thead>
-          {ideas &&
-            ideas.length > 0 &&
-            ideas.map((idea) => {
-              return (
-                <tbody>
-                  <tr>
-                    <td>{idea.topic}</td>
-                    <td>{idea.category} </td>
-                    <td>{idea.description}</td>
-                    <td>{idea.price}</td>
-                    <td>
-                      <input
-                        type="button"
-                        className="btn btn-primary"
-                        value="View More"
-                        onClick={() => {
-                          viewMore(idea._id);
-                        }}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              );
+          {patentideas &&
+            patentideas.length > 0 &&
+            patentideas.map((i) => {
+              if (i.status == "active") {
+                return (
+                  <tbody>
+                    <tr>
+                      <td>{i.classification}</td>
+                      <td>{i.date} </td>
+                      <td>{i.priority_data}</td>
+                      <td>{i.applicant}</td>
+                      <td>{i.inventor}</td>
+                      <td>{i.title}</td>
+                      <td>{i.abstract}</td>
+                      <td>{i.price}</td>
+                      <td>
+                        
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              }
             })}
         </Table>
       </div>
@@ -104,6 +105,6 @@ const View = () => {
       </footer1>
     </div>
   );
-};
+}
 
-export default View;
+export default ViewPatent;

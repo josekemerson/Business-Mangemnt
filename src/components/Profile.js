@@ -68,6 +68,7 @@ const Profile = () => {
                 <span>{user.email}</span>
                 <br />
                 <span>{user.phone}</span>
+ 
               </div>
             </div>
           </div>

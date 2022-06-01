@@ -26,7 +26,11 @@ function Sidebar({ sidebarOpen, closeSidebar }) {
       <div className="sidebar__menu">
         <div className="sidebar__link">
           <i className="fa fa-plus"></i>
-          <Link to="/useradmin">Manage User</Link>
+          <Link to="/useradmin">Manage User</Link> <br />
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-plus"></i>
+          <Link to="/AllowPatent">Allow Patent Ideas</Link> <br />
         </div>
 
         <div className="sidebar__logout">

@@ -67,7 +67,7 @@ body {
 .text-green {
   color: #3b9668;
 }
-.dashboardContainer {
+.dashboardContaine {
   display: grid;
   height: 100vh;
   grid-template-columns: 0.8fr 1fr 1fr 1fr;

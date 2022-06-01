@@ -64,6 +64,11 @@ function Appointment() {
   };
 
   const handleSubmit = async () => {
+    let value = {
+      aadvisor: aadvisor,
+    };
+    console.log(value);
+    // if(){
     if (aphone.length == 10) {
       const data = {
         aname: uname,
@@ -88,7 +93,11 @@ function Appointment() {
       } catch (e) {
         console.log("Error");
       }
-    } else {
+    }
+    //  }else{
+    //    alert("Advisor not available on that date");
+    //  }
+    else {
       alert("Phone number error");
     }
   };
@@ -106,14 +115,14 @@ function Appointment() {
             <Link to="/Dashboard">
               <li>Home</li>
             </Link>
-            <li>Ideas</li>
+
             <Link to="/Appointment">
               <li>Book Appointments </li>
             </Link>
             <Link to="/stock">
               <li>Stock </li>
             </Link>
-            <li>Banker</li>
+
             <Link to="/view">
               <li>View Posts </li>
             </Link>
@@ -185,7 +194,7 @@ function Appointment() {
                       <input
                         className="form-control"
                         type="date"
-                        min="2022-05-05"
+                        min="2022-05-12"
                         onChange={handleDate}
                         required
                       />

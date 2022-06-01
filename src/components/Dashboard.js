@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import { Link, useHistory } from "react-router-dom";
 import { Modal, Button, Form } from "react-bootstrap";
 
+
 const axios = require("axios");
 function Dashboard() {
   const history = useHistory();
@@ -65,14 +66,14 @@ function Dashboard() {
             <Link to="/Dashboard">
               <li>Home</li>
             </Link>
-            <li>Ideas</li>
+          
             <Link to="/Appointment">
               <li>Book Appointments </li>
             </Link>
-            <Link to="/Trading">
+            <Link to="/Stock">
               <li>Stock </li>
             </Link>
-            <li>Banker</li>
+           
             <Link to="/view">
               <li>View Posts </li>
             </Link>
@@ -107,11 +108,11 @@ function Dashboard() {
           <div id="hero-image">
             <div className="text-cont">
               <div className="promo-text">
-                <p>Working youth</p>
+                <p>Patent Ideas</p>
                 <img src="https://i.imgur.com/buWQHmk_d.webp?maxwidth=760&fidelity=grand" />
               </div>
               <div className="button1">
-                <p>view me?</p>
+                <p><Link to="/ViewPatent">view</Link></p>
               </div>
             </div>
           </div>
@@ -197,11 +198,11 @@ function Dashboard() {
               <img src="https://i.imgur.com/2ynhmed.jpg" />
               <div className="text-cont">
                 <div className="promo-text">
-                  <p>Banker</p>
+                  <p>Patent Ideas</p>
                   <img src="https://i.imgur.com/iyihjmj_d.webp?maxwidth=760&fidelity=grand" />
                 </div>
                 <div className="button1">
-                  <p>View Schemes</p>
+                  <p><Link to="/Patent">Post</Link></p>
                 </div>
               </div>
             </div>
@@ -225,6 +226,7 @@ function Dashboard() {
           </div>
         </section>
       </div>
+
       <footer1>
         <p>Copyright © 2021 ROI.Inc.</p>{" "}
       </footer1>

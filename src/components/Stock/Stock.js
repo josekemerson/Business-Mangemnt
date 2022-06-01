@@ -1,110 +1,136 @@
-import React from "react";
-import Plot from "react-plotly.js";
+// import Plot from "react-plotly.js";
+// import React, { useEffect, useState } from "react";
+// import { useHistory } from "react-router";
+
+
+
+// const axios = require("axios");
+
+//   const [comapanyName, setCompanyName] = useState([]);
+//   const [stockPrice, setStockPrice] = useState([]);
+//   const [date, setDate] = useState([]);
+//   const [stCompanyName, setCmpName] = useState(null);
+//   var newdate = [];
+//   var newprice = [];
+//   const handleCompanyName = (event) => {
+//     setCmpName(event.target.value);
+//   };
+//   async function getShowStock() {
+//     let data = {
+//       scomapanyName: stCompanyName,
+//     };
+//     let response = await axios.post("http://localhost:5000/getStockData", data);
+//     if (response.status === 200) {
+//       setStockPrice(response.data.stockprice);
+//       setDate(response.data.stockdate);
+//       // setCompanyName(response.data.cname);
+//       // console.log(response.data.stockprice);
+//       // console.log(response.data.stockdate);
+//     }
+//   }
+
+//   useEffect(() => {
+//     getShowStock();
+//   }, []);
+
+//   return (
+//     <div>
+//       <input
+//         type="text"
+//         placeholder="Company Name"
+//         onChange={handleCompanyName}
+//       />
+//       <input
+//         type="button"
+//         value="Get the Stock"
+//         onClick={() => {
+//           getShowStock();
+//         }}
+//       />
+
+//       {
+//         (date &&
+//           date.length > 0 &&
+//           date.map((p) => {
+//             newdate.push(p);
+//           }),
+//         stockPrice &&
+//           stockPrice.length > 0 &&
+//           stockPrice.map((a) => {
+//             newprice.push(a);
+//           }))
+//       }
+//       \{console.log("huuuu", newdate[0], newdate[1])}
+//       <Plot
+//         data={[
+//           {
+//             x: [newdate[0], newdate[1]],
+//             y: [newprice[0], newprice[1]],
+//             type: "scatter",
+//             mode: "lines+markers",
+//             marker: { color: "red" },
+//           },
+//         ]}
+//         layout={{ width: 1000, height: 500, title: "Stock" }}
+//       />
+//     </div>
+//   );
+// }
+
+import React from 'react'
+import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
 
-class Stock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stockChartXValues: [],
-      stockChartYValues: [],
-    };
-  }
+function Stock() {
+  return (
+    <div>
+       <header1>
+        <nav>
+          <div id="logo">
+            <img
+              src="https://i.imgur.com/TdccLUv_d.webp?maxwidth=760&fidelity=grand"
+              width="100 "
+            />
+          </div>
+          <ul id="menu">
+            <Link to="/Dashboard">
+              <li>Home</li>
+            </Link>
 
-  componentDidMount() {
-    this.fetchStock();
-  }
+            <Link to="/Appointment">
+              <li>Book Appointments </li>
+            </Link>
+            <Link to="/stock">
+              <li>Stock </li>
+            </Link>
 
-  fetchStock() {
-    const pointerToThis = this;
-    console.log(pointerToThis);
-    const API_KEY = "SZCF0WYTI8IUYFUX";
-    let StockSymbol = "IBM";
-    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${StockSymbol}&outputsize=compact&apikey=${API_KEY}`;
-
-    let stockChartXValuesFunction = [];
-    let stockChartYValuesFunction = [];
-
-    fetch(API_Call)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        console.log(data);
-
-        for (var key in data["Time Series (Daily)"]) {
-          stockChartXValuesFunction.push(key);
-          stockChartYValuesFunction.push(
-            data["Time Series (Daily)"][key]["1. open"]
-          );
-        }
-
-        // console.log(stockChartXValuesFunction);
-        pointerToThis.setState({
-          stockChartXValues: stockChartXValuesFunction,
-          stockChartYValues: stockChartYValuesFunction,
-        });
-      });
-  }
-
-  render() {
-    return (
-      <div>
-        <header1>
-          <nav>
-            <div id="logo">
-              <img
-                src="https://i.imgur.com/TdccLUv_d.webp?maxwidth=760&fidelity=grand"
-                width="100 "
-              />
-            </div>
-            <ul id="menu">
-              <Link to="/Dashboard">
-                <li>Home</li>
-              </Link>
-              <li>Ideas</li>
-              <Link to="/Appointment">
-                <li>Book Appointments </li>
-              </Link>
-              <Link to="/stock">
-                <li>Stock </li>
-              </Link>
-              <li>Banker</li>
-              <Link to="/view">
-                <li>View Posts </li>
-              </Link>
-              <Link to="/Profile">
-                {" "}
-                <li>Profile </li>
-              </Link>
-              <Link to="/showcase">
-                <li>Log Out</li>
-              </Link>
-            </ul>
-          </nav>
-        </header1>
-        <center>
-          <h1>Stock Market Analysis</h1>
-          <Plot
-            data={[
-              {
-                x: this.state.stockChartXValues,
-                y: this.state.stockChartYValues,
-                type: "scatter",
-                mode: "lines+markers",
-                marker: { color: "red" },
-              },
-            ]}
-            layout={{ width: 720, height: 440, title: "IBM STOCK" }}
-          />
-        </center>
-        <footer1>
-          <p>Copyright © 2021 ROI.Inc.</p>{" "}
-        </footer1>
+            <Link to="/view">
+              <li>View Posts </li>
+            </Link>
+            <Link to="/Profile">
+              {" "}
+              <li>Profile </li>
+            </Link>
+            <Link to ="/Login">
+              <li>Log Out</li>
+            </Link>
+          </ul>
+        </nav>
+      </header1>
+      <div style={{marginTop:'-20px'}}>
+      <TradingViewWidget
+    symbol="NASDAQ:AAPL"
+    theme={Themes.DARK}
+    locale="fr"
+    width="1370"
+    height="600"
+  />
       </div>
-    );
-  }
+          <footer1>
+        <p>Copyright © 2021 ROI.Inc.</p>{" "}
+      </footer1>
+    </div>
+  )
 }
 
-export default Stock;
+export default Stock

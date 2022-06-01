@@ -68,9 +68,32 @@ function Useradmin() {
   }, []);
 
   const data = {};
+  // let button;
+  // console.log(users);
+  // if(users.status === "active"){
+  //         button  = <button
+  //         className="btn btn-success"
+  //         data-toggle="modal"
+  //         data-target="#exampleModal"
+  //         onClick={() => {
+  //           handleActivate(users._id);
+  //         }}
+  //       >
+  //         Unblock <i className="fa fa-pen"></i>
+  //       </button>
+  // }else{
+  //   button  =   <button
+  //   className="btn btn-warning"
+  //   onClick={() => {
+  //     handleBlock(users._id);
+  //   }}
+  // >
+  //   Block<i className="fa fa-circle"></i>
+  // </button>
+  // }
   return (
     <div className="d-flex w-100 h-100">
-      {/* <Sidebar /> */}
+       <Sidebar /> 
       <main>
         <div className="main__container">
           <Table striped bordered hover size="sm" style={{ margin: 0 }}>
@@ -97,7 +120,8 @@ function Useradmin() {
                         <td>{u.status}</td>
                         <td>{u.role}</td>
                         <td className="d-flex justify-content-around">
-                          <button
+                        
+                          {/* <button
                             className="btn btn-success"
                             data-toggle="modal"
                             data-target="#exampleModal"
@@ -106,15 +130,20 @@ function Useradmin() {
                             }}
                           >
                             Unblock <i className="fa fa-pen"></i>
-                          </button>
-                          <button
+                          </button> */}
+                        
+              
+                                                  
+                            {/* <button
                             className="btn btn-warning"
                             onClick={() => {
                               handleBlock(u._id);
                             }}
                           >
                             Block<i className="fa fa-circle"></i>
-                          </button>
+                          </button> */}
+
+                          {/* {button} */}
                           <button
                             className="btn btn-danger"
                             onClick={() => {
@@ -123,6 +152,7 @@ function Useradmin() {
                           >
                             Delete<i className="fa fa-trash"></i>
                           </button>
+                        
                         </td>
                       </tr>
                     );
